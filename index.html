@@ -44,13 +44,27 @@
     }
     </script>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 600px; margin: 40px auto; padding: 0 20px; color: #333; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 40px auto; padding: 0 20px; color: #333; }
         h1 { margin-bottom: 5px; }
         .title { color: #666; font-style: italic; margin-top: 0; }
         ul { padding-left: 20px; }
         a { color: #0066cc; text-decoration: none; }
         a:hover { text-decoration: underline; }
-        
+
+        /* Two-column layout: main content left, sidebar right */
+        .layout { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 48px; align-items: start; }
+        .sidebar { position: sticky; top: 40px; padding-left: 24px; border-left: 1px solid #eee; }
+        .sidebar h2 { font-size: 1.1em; margin: 0 0 6px 0; }
+        .sidebar h2:not(:first-child) { margin-top: 24px; }
+        .sidebar ul { list-style: none; padding-left: 0; margin: 0; font-size: 0.95em; }
+        .sidebar li { margin-bottom: 4px; }
+
+        /* Stack the columns on small screens */
+        @media (max-width: 720px) {
+            .layout { grid-template-columns: 1fr; gap: 24px; }
+            .sidebar { position: static; padding-left: 0; border-left: none; border-top: 1px solid #eee; padding-top: 20px; }
+        }
+
         /* Interactive Collapsible Sections */
         details { margin-top: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
         summary { font-size: 1.5em; font-weight: bold; cursor: pointer; outline: none; list-style: none; user-select: none; }
@@ -64,79 +78,101 @@
         .item-title { font-weight: bold; margin: 0; }
         .item-meta { color: #555; margin: 0; font-size: 0.95em; }
         .item-date { color: #777; font-size: 0.85em; margin: 0; }
-        
+        .item-desc { color: #444; font-size: 0.9em; margin: 2px 0 0 0; }
     </style>
 </head>
 <body>
-    <h1>Ethan Yip</h1>
-    <p class="title">Principal Engineer at Resonance | Researcher at Substrate Labs</p>
-    
-    <p>Researcher and engineer focused on mechanistic interpretability and applied ML in social, safety, and global systems.</p>
-    <p>I like designing and analyzing systems. Pursuing knowledge in ML, EECS, Philosophy and other societal orders.</p>
+    <div class="layout">
+        <main>
+            <h1>Ethan Yip</h1>
+            <p class="title">Principal Engineer at Resonance | Researcher at Substrate Labs</p>
 
-    <h2>Contact</h2>
-    <ul>
-        <li>work: ethan[at]rsnc[dot]ai</li>
-        <li>research: ethanyip[at]substrate-labs[dot]org</li>
-    </ul>
-    
-    <h2>Links</h2>
-    <ul>
-        <li><a href="https://www.linkedin.com/in/yip-ethan">LinkedIn</a></li>
-        <li><a href="https://scholar.google.com/citations?user=8XnetRAAAAAJ">Google Scholar</a></li>
-        <li><a href="https://substrate-labs.org/ethan">Substrate Labs Profile</a></li>
-        <li><a href="https://www.alphaxiv.org/@ethan-yip">alphaXiv</a></li>
-    </ul>
+            <p>Researcher and engineer focused on mechanistic interpretability and applied ML in social, safety, and global systems.</p>
+            <p>Currently, I'm a Principal Engineer at Resonance and a researcher at Substrate Labs, where I work on interpretability and applied machine learning across agents, physics, and alignment.</p>
+            <p>I like designing and analyzing systems. Pursuing knowledge in ML, EECS, Philosophy and other societal orders.</p>
 
-        <!-- Collapsible Experience Section -->
-    <details>
-        <summary>Experience</summary>
-        <div class="content-block">
-            <div class="list-item">
-                <p class="item-title">Principal Engineer</p>
-                <p class="item-meta">Resonance</p>
-                <p class="item-date">May 2026 - Present · San Francisco Bay Area (Hybrid)</p>
-            </div>
+            <!-- Collapsible Research Section -->
+            <details open>
+                <summary>Research</summary>
+                <div class="content-block">
+                    <div class="list-item">
+                        <p class="item-title"><a href="https://openreview.net/forum?id=qNgT4ByWgQ">Before Measuring Human-Agent Teams: Validating Human References in Agent Benchmarks</a></p>
+                        <p class="item-meta">2nd author · NeurIPS 2026 Human-AI Coevolution (HAIC) Workshop</p>
+                        <p class="item-desc">Audits the reliability of the human task-difficulty baselines behind agent benchmarks like METR, SWE-bench Verified, and GAIA, and proposes a validity protocol for claims that agents can substitute for human work.</p>
+                    </div>
 
-            <!-- Tandem LinkedIn-Style Grouping -->
-                <div class="list-item">
+                    <div class="list-item">
+                        <p class="item-title"><a href="https://openreview.net/forum?id=EBOwkU7ICQ">The Survey Item Predicts Human Disagreement Better Than Simulator Output Entropy</a></p>
+                        <p class="item-meta">3rd author · NeurIPS 2026 SocialAgent Workshop</p>
+                        <p class="item-desc">Shows that a small text encoder reading only a survey question predicts how much humans will disagree on it better than an LLM social simulator's own output uncertainty.</p>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Collapsible Experience Section -->
+            <details open>
+                <summary>Experience</summary>
+                <div class="content-block">
+                    <div class="list-item">
+                        <p class="item-title">Principal Engineer</p>
+                        <p class="item-meta">Resonance</p>
+                        <p class="item-date">May 2026 - Present · San Francisco Bay Area (Hybrid)</p>
+                    </div>
+
+                    <div class="list-item">
                         <p class="item-title">Youth Delegate (and Director of HTSI)</p>
                         <p class="item-meta">United Nations Department of Economic and Social Affairs</p>
                         <p class="item-date">Sep 2025 - Present · New York City Area (Part-time)</p>
+                    </div>
+
+                    <div class="list-item">
+                        <p class="item-title">Venture Strategy and Ops</p>
+                        <p class="item-meta">Deep24 (YC W24)</p>
+                        <p class="item-date">2025 – 2025 · San Francisco Bay Area (Remote)</p>
+                    </div>
                 </div>
-            </div>
-    
-            <div class="list-item">
-                <p class="item-title">Venture Strategy and Ops</p>
-                <p class="item-meta">Deep24 (YC W24)</p>
-                <p class="item-date">2025 – 2025 · San Francisco Bay Area (Remote)</p>
-            </div>
-        </div>
-    </details>
+            </details>
 
-    <!-- Collapsible Awards Section -->
-    <details>
-        <summary>Awards</summary>
-        <div class="content-block">
-            <div class="list-item">
-                <p class="item-title">John Locke Essay Competition — "Very High Commendation"</p>
-                <p class="item-meta">John Locke Institute (Oxford & Princeton Joint Program)</p>
-                <p class="item-date">Aug 2025</p>
-            </div>
+            <!-- Collapsible Awards Section -->
+            <details open>
+                <summary>Awards</summary>
+                <div class="content-block">
+                    <div class="list-item">
+                        <p class="item-title">John Locke Essay Competition — "Very High Commendation"</p>
+                        <p class="item-meta">John Locke Institute (Oxford & Princeton Joint Program)</p>
+                        <p class="item-date">Aug 2025</p>
+                    </div>
 
-            <div class="list-item">
-                <p class="item-title">ACL/NJCL National Latin Exam — 2x Gold, Summa Cum Laude (Perfect Score)</p>
-                <p class="item-meta">American Classical League</p>
-                <p class="item-date">May 2026</p>
-            </div>
+                    <div class="list-item">
+                        <p class="item-title">ACL/NJCL National Latin Exam — 2x Gold, Summa Cum Laude (Perfect Score)</p>
+                        <p class="item-meta">American Classical League</p>
+                        <p class="item-date">May 2026</p>
+                    </div>
 
-            <div class="list-item">
-                <p class="item-title">European Challenge — 2x National Semifinalist</p>
-                <p class="item-meta">The European Union Delegation to the United States</p>
-                <p class="item-date">Apr 2025</p>
-            </div>
-        </div>
-    </details>
+                    <div class="list-item">
+                        <p class="item-title">European Challenge — 2x National Semifinalist</p>
+                        <p class="item-meta">The European Union Delegation to the United States</p>
+                        <p class="item-date">Apr 2025</p>
+                    </div>
+                </div>
+            </details>
+        </main>
 
+        <aside class="sidebar">
+            <h2>Contact</h2>
+            <ul>
+                <li>work: ethan[at]rsnc[dot]ai</li>
+                <li>research: ethanyip[at]substrate-labs[dot]org</li>
+            </ul>
+
+            <h2>Links</h2>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/yip-ethan">LinkedIn</a></li>
+                <li><a href="https://scholar.google.com/citations?user=8XnetRAAAAAJ">Google Scholar</a></li>
+                <li><a href="https://substrate-labs.org/ethan">Substrate Labs Profile</a></li>
+                <li><a href="https://www.alphaxiv.org/@ethan-yip">alphaXiv</a></li>
+            </ul>
+        </aside>
+    </div>
 </body>
 </html>
