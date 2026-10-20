@@ -42,7 +42,6 @@
             --accent: #2563eb;
             --accent-hover: #1d4ed8;
             --border-color: #eaeaea;
-            --card-hover-bg: #fdfdfd;
         }
 
         * {
@@ -230,6 +229,102 @@
             line-height: 1.5;
         }
 
+        /* Modal Overlay Styles */
+        .modal-trigger {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--accent);
+        }
+        
+        .modal-trigger:hover {
+            text-decoration: underline;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #f3f4f6;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4b5563;
+            transition: background 0.15s ease;
+        }
+
+        .modal-close:hover {
+            background: #e5e7eb;
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .modal-content .modal-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            color: #374151;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .video-placeholder {
+            background: #f9fafb;
+            border: 2px dashed #d1d5db;
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 24px;
+            font-size: 0.95em;
+        }
+
         /* Mobile Responsive adjustments */
         @media (max-width: 768px) {
             body {
@@ -272,6 +367,19 @@
                 <p>Currently, I'm a Principal Engineer at <strong>Resonance</strong> working on Humanoid Architectures and Voice Audio systems. In addition, I research at <strong>Substrate Labs</strong> on interpretability and applied machine learning across agents, physics, and alignment.</p>
                 <p>I enjoy designing and analyzing systems while pursuing knowledge in ML, EECS, Philosophy, and societal structures.</p>
             </section>
+
+            <!-- Projects Section -->
+            <details open>
+                <summary>Projects</summary>
+                <div class="content-block">
+                    <div class="list-item">
+                        <p class="item-title">PNS Guard</p>
+                        <p class="item-meta">Geometric AI Safety & Active Defense</p>
+                        <p class="item-desc">A 3D security "MRI" layer mapping transformer residual streams into Principal Nested Sphere (PNS) coordinates to deterministically block sophisticated jailbreaks before token generation.</p>
+                        <span class="modal-trigger" onclick="openModal()">View Project Details & Video ›</span>
+                    </div>
+                </div>
+            </details>
 
             <!-- Research Section -->
             <details open>
@@ -317,8 +425,14 @@
 
             <!-- Awards Section -->
             <details open>
-                <summary>Awards</summary>
+                <summary>Awards & Recognition</summary>
                 <div class="content-block">
+                    <div class="list-item">
+                        <p class="item-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7568219" target="_blank" rel="noopener">Featured Presenter — UN Frontier Research Forum</a></p>
+                        <p class="item-meta">Hosted by Princeton / Springer</p>
+                        <p class="item-date">Global Goals Week Presentation</p>
+                    </div>
+
                     <div class="list-item">
                         <p class="item-title">John Locke Essay Competition — "Very High Commendation"</p>
                         <p class="item-meta">John Locke Institute (Oxford & Princeton Joint Program)</p>
@@ -349,4 +463,59 @@
                         <a href="mailto:ethan@rsnc.ai">ethan@rsnc.ai</a>
                     </li>
                     <li>
-                        <span class
+                        <span class="label">Research</span>
+                        <a href="mailto:ethanyip@substrate-labs.org">ethanyip@substrate-labs.org</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/yip-ethan" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="https://scholar.google.com/citations?user=8XnetRAAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+                    <li><a href="https://substrate-labs.org/ethan" target="_blank" rel="noopener">Substrate Labs Profile</a></li>
+                    <li><a href="https://www.alphaxiv.org/@ethan-yip" target="_blank" rel="noopener">alphaXiv</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Full-screen Modal for PNS Guard -->
+    <div class="modal-overlay" id="pnsModal" onclick="checkClose(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <h3>PNS Guard: Geometric AI Safety</h3>
+            <p class="modal-subtitle">Advanced Architecture & Active Defense Mechanism</p>
+            
+            <p><strong>Overview:</strong> Modern AI safety largely relies on flat, linear steering vectors and superficial keyword filters that can easily be bypassed by sophisticated, multi-step adversarial prompts. PNS Guard introduces a robust 3D security "MRI" layer by mapping residual streams directly into Principal Nested Sphere (PNS) coordinates live.</p>
+            
+            <p><strong>How it Works:</strong> Utilizing lightweight transformer hooks at fractional model depths where refusal geometry naturally inverts, PNS Guard analyzes the heteroscedastic shape of activation clouds. By leveraging power diagram classifiers instead of fragile linear probes, it captures multi-dimensional geometric boundaries, allowing systems to deterministically block complex attacks before a single malicious token is generated.</p>
+            
+            <p><strong>Impact & Applications:</strong> Designed to secure high-stakes infrastructure—such as autonomous grid management, finance, and medical AI systems—PNS Guard prevents rogue agents from executing unintended instructions or bypassing safety constraints via distribution shifts.</p>
+            
+            <div class="video-placeholder">
+                Project presentation link coming soon.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('pnsModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('pnsModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function checkClose(event) {
+            if (event.target === document.getElementById('pnsModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
