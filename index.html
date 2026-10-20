@@ -39,7 +39,6 @@
             --text-main: #000000;
             --text-muted: #555555;
             --text-light: #777777;
-            --border-color: #000000;
         }
 
         * {
@@ -76,7 +75,7 @@
         .bio {
             font-size: 1.02rem;
             color: #222222;
-            margin-bottom: 36px;
+            margin-bottom: 40px;
         }
 
         .bio p {
@@ -141,17 +140,17 @@
             margin-bottom: 2px;
         }
 
-        /* Interactive Collapsible Sections */
+        /* Clean Collapsible Sections */
         details {
-            margin-bottom: 24px;
-            border: 1px solid #000000;
-            background: #fff;
+            margin-bottom: 32px;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 12px;
         }
 
         summary {
             font-size: 1.25em;
             font-weight: 700;
-            padding: 16px 20px;
+            padding: 8px 0;
             cursor: pointer;
             outline: none;
             list-style: none;
@@ -159,8 +158,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #000000;
-            color: #ffffff;
+            background: transparent;
+            color: #000000;
         }
 
         summary::-webkit-details-marker {
@@ -172,7 +171,7 @@
             font-size: 1.2em;
             line-height: 1;
             font-weight: 700;
-            color: #ffffff;
+            color: #000000;
         }
 
         details[open] summary::after {
@@ -181,13 +180,12 @@
 
         /* Content List Styling */
         .content-block {
-            padding: 8px 20px 16px 20px;
-            background: #ffffff;
+            padding: 12px 0 4px 0;
         }
 
         .list-item {
-            padding: 16px 0;
-            border-bottom: 1px solid #cccccc;
+            padding: 12px 0;
+            border-bottom: 1px solid #dddddd;
         }
 
         .list-item:last-child {
@@ -352,9 +350,10 @@
             </header>
 
             <section class="bio">
-                <p>Researcher and engineer focused on mechanistic interpretability and applied ML in social, safety, and global systems.</p>
-                <p>Currently, I'm a Principal Engineer at <strong>Resonance</strong> working on Humanoid Architectures and Voice Audio systems. In addition, I research at <strong>Substrate Labs</strong> on interpretability and applied machine learning across agents, physics, and alignment.</p>
+                <p>Research engineer focused on mechanistic interpretability and applied ML in social, safety, and global systems.</p>
+                <p>Currently, I'm an Engineer at <strong>Resonance</strong> working on the initial Humanoid Architectures and Voice Audio systems. In addition, I research at <strong>Substrate Labs</strong> on interpretability and applied machine learning across agents, physics, and alignment.</p>
                 <p>I enjoy designing and analyzing systems while pursuing knowledge in ML, EECS, Philosophy, and societal structures.</p>
+                <p>When I'm not pursuing work in the above, I like to read into classical latin, ancient history and psychology!</p>
             </section>
 
             <!-- Projects Section -->
@@ -376,7 +375,7 @@
                 <div class="content-block">
                     <div class="list-item">
                         <p class="item-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7568219" target="_blank" rel="noopener">PNS Guard: Geometric AI Safety and Active Defense Framework</a></p>
-                        <p class="item-meta">1st author · UN Frontier Research Forum (Hosted by Princeton / Springer)</p>
+                        <p class="item-meta">1st author · Presented at UN Frontier Research Forum (Hosted by Princeton / Springer)</p>
                         <p class="item-desc">Applied research establishing a geometric 3D security "MRI" framework using Principal Nested Sphere (PNS) coordinates to isolate and block transformer activation jailbreaks.</p>
                     </div>
 
