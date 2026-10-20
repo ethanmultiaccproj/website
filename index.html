@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethan Yip | AI Researcher & Engineer</title>
     <meta name="google-site-verification" content="fVbPihG1WFt1-XdBv415vV-xJdyH4gmRftP_CqgxIV0" />
+    
     <!-- Google Pill Schema -->
     <script type="application/ld+json">
     {
@@ -14,22 +15,10 @@
       "url": "https://ethanyip.com",
       "jobTitle": "Principal Engineer & Researcher",
       "worksFor": [
-        {
-          "@type": "Organization",
-          "name": "Resonance"
-        },
-        {
-          "@type": "Organization",
-          "name": "RSNC"
-        },
-        {
-          "@type": "Organization",
-          "name": "Substrate Labs"
-        },
-        {
-          "@type": "Organization",
-          "name": "United Nations Department of Economic and Social Affairs"
-        }
+        { "@type": "Organization", "name": "Resonance" },
+        { "@type": "Organization", "name": "RSNC" },
+        { "@type": "Organization", "name": "Substrate Labs" },
+        { "@type": "Organization", "name": "United Nations Department of Economic and Social Affairs" }
       ],
       "description": "Researcher and engineer focused on mechanistic interpretability and applied ML in safety and global systems.",
       "sameAs": [
@@ -43,98 +32,290 @@
       ]
     }
     </script>
+
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 40px auto; padding: 0 20px; color: #333; }
-        h1 { margin-top: 0; margin-bottom: 5px; line-height: 1.2; }
-        .title { color: #666; font-style: italic; margin-top: 0; }
-        ul { padding-left: 20px; }
-        a { color: #0066cc; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --text-light: #888888;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border-color: #eaeaea;
+            --card-hover-bg: #fdfdfd;
+        }
 
-        /* Two-column layout: main content left, sidebar right */
-        .layout { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 48px; align-items: start; }
-        .sidebar { position: sticky; top: 40px; padding-left: 24px; border-left: 1px solid #eee; }
-        .sidebar h2 { font-size: 1.1em; margin: 0 0 6px 0; line-height: 2.18em; }
-        .sidebar h2:not(:first-child) { margin-top: 24px; line-height: 1.6; }
-        .sidebar ul { list-style: none; padding-left: 0; margin: 0; font-size: 0.95em; }
-        .sidebar li { margin-bottom: 4px; }
+        * {
+            box-sizing: border-box;
+        }
 
-        /* Stack the columns on small screens */
-        @media (max-width: 720px) {
-            .layout { grid-template-columns: 1fr; gap: 24px; }
-            .sidebar { position: static; padding-left: 0; border-left: none; border-top: 1px solid #eee; padding-top: 20px; }
-            .sidebar h2 { line-height: 1.6; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 0 0 6px 0;
+            color: #111;
+        }
+
+        .title {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-top: 0;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .bio {
+            font-size: 1.02rem;
+            color: #374151;
+            margin-bottom: 36px;
+        }
+
+        .bio p {
+            margin-bottom: 12px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        /* Two-column Layout */
+        .layout {
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 64px;
+            align-items: start;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            position: sticky;
+            top: 40px;
+            padding-left: 32px;
+            border-left: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .sidebar-section h2 {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            margin: 0 0 12px 0;
+            font-weight: 600;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+
+        .sidebar .label {
+            display: block;
+            font-size: 0.8em;
+            color: var(--text-light);
+            text-transform: capitalize;
+            margin-bottom: 2px;
         }
 
         /* Interactive Collapsible Sections */
-        details { margin-top: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        summary { font-size: 1.5em; font-weight: bold; cursor: pointer; outline: none; list-style: none; user-select: none; }
-        summary::-webkit-details-marker { display: none; }
-        summary::after { content: ' +'; float: right; color: #999; font-weight: normal; }
-        details[open] summary::after { content: ' −'; }
+        details {
+            margin-bottom: 24px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            transition: border-color 0.2s ease;
+        }
 
-        /* List Layout Styling */
-        .content-block { padding-top: 15px; }
-        .list-item { margin-bottom: 15px; }
-        .item-title { font-weight: bold; margin: 0; }
-        .item-meta { color: #555; margin: 0; font-size: 0.95em; }
-        .item-date { color: #777; font-size: 0.85em; margin: 0; }
-        .item-desc { color: #444; font-size: 0.9em; margin: 2px 0 0 0; }
+        details:hover {
+            border-color: #ddd;
+        }
+
+        summary {
+            font-size: 1.25em;
+            font-weight: 600;
+            padding: 16px 20px;
+            cursor: pointer;
+            outline: none;
+            list-style: none;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fafafa;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '›';
+            font-size: 1.4em;
+            line-height: 1;
+            color: var(--text-light);
+            transition: transform 0.2s ease;
+        }
+
+        details[open] summary::after {
+            transform: rotate(90deg);
+        }
+
+        /* Content List Styling */
+        .content-block {
+            padding: 8px 20px 16px 20px;
+        }
+
+        .list-item {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+            line-height: 1.4;
+        }
+
+        .item-meta {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 0.92em;
+            font-weight: 500;
+        }
+
+        .item-date {
+            color: var(--text-light);
+            font-size: 0.85em;
+            margin: 2px 0 0 0;
+        }
+
+        .item-desc {
+            color: #4b5563;
+            font-size: 0.93em;
+            margin: 8px 0 0 0;
+            line-height: 1.5;
+        }
+
+        /* Mobile Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 16px;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .sidebar {
+                position: static;
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid var(--border-color);
+                padding-top: 32px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 40px;
+            }
+
+            .sidebar-section {
+                flex: 1 1 200px;
+            }
+        }
     </style>
 </head>
 <body>
+
     <div class="layout">
         <main>
-            <h1>Ethan Yip</h1>
-            <p class="title">Principal Engineer at Resonance | Researcher at Substrate Labs</p>
+            <header>
+                <h1>Ethan Yip</h1>
+                <p class="title">Principal Engineer at Resonance &nbsp;|&nbsp; Researcher at Substrate Labs</p>
+            </header>
 
-            <p>Researcher and engineer focused on mechanistic interpretability and applied ML in social, safety, and global systems.</p>
-            <p>Currently, I'm a Principal Engineer at Resonance, working on the Humanoid Architectures and Voice Audio systems. In addition, I research at Substrate Labs, where I work on interpretability and applied machine learning across agents, physics, and alignment.</p>
-            <p>I like designing and analyzing systems. Pursuing knowledge in ML, EECS, Philosophy and other societal orders.</p>
+            <section class="bio">
+                <p>Researcher and engineer focused on mechanistic interpretability and applied ML in social, safety, and global systems.</p>
+                <p>Currently, I'm a Principal Engineer at <strong>Resonance</strong> working on Humanoid Architectures and Voice Audio systems. In addition, I research at <strong>Substrate Labs</strong> on interpretability and applied machine learning across agents, physics, and alignment.</p>
+                <p>I enjoy designing and analyzing systems while pursuing knowledge in ML, EECS, Philosophy, and societal structures.</p>
+            </section>
 
-            <!-- Collapsible Research Section -->
+            <!-- Research Section -->
             <details open>
                 <summary>Research</summary>
                 <div class="content-block">
                     <div class="list-item">
                         <p class="item-title"><a href="https://openreview.net/forum?id=qNgT4ByWgQ">Before Measuring Human-Agent Teams: Validating Human References in Agent Benchmarks</a></p>
                         <p class="item-meta">2nd author · NeurIPS 2026 Human-AI Coevolution (HAIC) Workshop</p>
-                        <p class="item-desc">Audits the reliability of the human task-difficulty baselines behind agent benchmarks like METR, SWE-bench Verified, and GAIA, and proposes a validity protocol for claims that agents can substitute for human work.</p>
+                        <p class="item-desc">Audits the reliability of human task-difficulty baselines behind agent benchmarks like METR, SWE-bench Verified, and GAIA, proposing a validity protocol for claims that agents can substitute for human work.</p>
                     </div>
 
                     <div class="list-item">
                         <p class="item-title"><a href="https://openreview.net/forum?id=EBOwkU7ICQ">The Survey Item Predicts Human Disagreement Better Than Simulator Output Entropy</a></p>
                         <p class="item-meta">3rd author · NeurIPS 2026 SocialAgent Workshop</p>
-                        <p class="item-desc">Shows that a small text encoder reading only a survey question predicts how much humans will disagree on it better than an LLM social simulator's own output uncertainty.</p>
+                        <p class="item-desc">Demonstrates that a small text encoder reading only a survey question predicts human disagreement better than an LLM social simulator's own output uncertainty.</p>
                     </div>
                 </div>
             </details>
 
-            <!-- Collapsible Experience Section -->
+            <!-- Experience Section -->
             <details open>
                 <summary>Experience</summary>
                 <div class="content-block">
                     <div class="list-item">
                         <p class="item-title">Principal Engineer</p>
                         <p class="item-meta">Resonance</p>
-                        <p class="item-date">May 2026 - Present · San Francisco Bay Area (Hybrid)</p>
+                        <p class="item-date">May 2026 – Present · San Francisco Bay Area (Hybrid)</p>
                     </div>
 
                     <div class="list-item">
-                        <p class="item-title">Youth Delegate (and Director of HTSI)</p>
+                        <p class="item-title">Youth Delegate & Director of HTSI</p>
                         <p class="item-meta">United Nations Department of Economic and Social Affairs</p>
-                        <p class="item-date">Sep 2025 - Present · New York City Area (Part-time)</p>
+                        <p class="item-date">Sep 2025 – Present · New York City Area (Part-time)</p>
                     </div>
 
                     <div class="list-item">
-                        <p class="item-title">Venture Strategy and Ops</p>
+                        <p class="item-title">Venture Strategy & Ops</p>
                         <p class="item-meta">Deep24 (YC W24)</p>
-                        <p class="item-date">2025 – 2025 · San Francisco Bay Area (Remote)</p>
+                        <p class="item-date">2025 · San Francisco Bay Area (Remote)</p>
                     </div>
                 </div>
             </details>
 
-            <!-- Collapsible Awards Section -->
+            <!-- Awards Section -->
             <details open>
                 <summary>Awards</summary>
                 <div class="content-block">
@@ -160,20 +341,12 @@
         </main>
 
         <aside class="sidebar">
-            <h2>Contact</h2>
-            <ul>
-                <li>work: ethan[at]rsnc[dot]ai</li>
-                <li>research: ethanyip[at]substrate-labs[dot]org</li>
-            </ul>
-
-            <h2>Links</h2>
-            <ul>
-                <li><a href="https://www.linkedin.com/in/yip-ethan">LinkedIn</a></li>
-                <li><a href="https://scholar.google.com/citations?user=8XnetRAAAAAJ">Google Scholar</a></li>
-                <li><a href="https://substrate-labs.org/ethan">Substrate Labs Profile</a></li>
-                <li><a href="https://www.alphaxiv.org/@ethan-yip">alphaXiv</a></li>
-            </ul>
-        </aside>
-    </div>
-</body>
-</html>
+            <div class="sidebar-section">
+                <h2>Contact</h2>
+                <ul>
+                    <li>
+                        <span class="label">Work</span>
+                        <a href="mailto:ethan@rsnc.ai">ethan@rsnc.ai</a>
+                    </li>
+                    <li>
+                        <span class
