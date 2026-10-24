@@ -128,58 +128,16 @@
         }
 
         .sidebar li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             word-break: break-word;
         }
 
         .sidebar .label {
             display: block;
-            font-size: 0.85em;
-            font-weight: 600;
-            color: #000;
-            margin-bottom: 1px;
-        }
-
-        /* Click-open tab styling for Sidebar Reading List */
-        .sidebar-details {
-            margin-bottom: 0;
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .sidebar-summary {
-            font-size: 0.85em;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
-            font-weight: 700;
-            padding: 0;
-            margin: 0 0 12px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            list-style: none;
-            background: transparent;
-        }
-
-        .sidebar-summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .sidebar-summary::after {
-            content: '+';
-            font-size: 1.1em;
-            font-weight: 700;
-            color: var(--text-muted);
-        }
-
-        .sidebar-details[open] .sidebar-summary::after {
-            content: '−';
-        }
-
-        .sidebar-details ul {
-            margin-top: 12px;
+            font-size: 0.8em;
+            color: var(--text-light);
+            text-transform: capitalize;
+            margin-bottom: 2px;
         }
 
         /* Clean Collapsible Sections */
@@ -354,6 +312,17 @@
             font-size: 0.95em;
         }
 
+        /* Reading list specific formatting inside modal */
+        .modal-content ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .modal-content li {
+            margin-bottom: 10px;
+            color: #222;
+        }
+
         /* Mobile Responsive adjustments */
         @media (max-width: 768px) {
             body {
@@ -406,7 +375,7 @@
                         <p class="item-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7568219" target="_blank" rel="noopener">PNS Guard: Geometric AI Safety and Active Defense Framework</a></p>
                         <p class="item-meta">2nd author · UN Frontier Research Forum (Princeton / Springer)</p>
                         <p class="item-desc">Applied research establishing a geometric 3D security "MRI" framework using Principal Nested Sphere (PNS) coordinates to isolate and block transformer activation jailbreaks.</p>
-                        <span class="modal-trigger" onclick="openModal()">[+]</span>
+                        <span class="modal-trigger" onclick="openPnsModal()">[+]</span>
                     </div>
 
                     <div class="list-item">
@@ -487,53 +456,14 @@
                 </ul>
             </div>
 
-            <!-- Click-Open Reading List Section -->
+            <!-- Reading List Trigger Tab -->
             <div class="sidebar-section">
-                <details class="sidebar-details">
-                    <summary class="sidebar-summary">Reading List</summary>
-                    <ul>
-                        <li>
-                            <span class="label">The Alignment Problem</span>
-                            Brian Christian
-                        </li>
-                        <li>
-                            <span class="label">De Officiis</span>
-                            Cicero
-                        </li>
-                        <li>
-                            <span class="label">Mediations</span>
-                            Marcus Aurelius
-                        </li>
-                        <li>
-                            <span class="label">Cybernetics</span>
-                            Norbert Wiener
-                        </li>
-                        <li>
-                            <span class="label">Situational Awareness</span>
-                            Leopold Aschenbrenner
-                        </li>
-                        <li>
-                            <span class="label">Sapiens</span>
-                            Yuval Noah Harari
-                        </li>
-                        <li>
-                            <span class="label">Organon</span>
-                            Aristotle
-                        </li>
-                        <li>
-                            <span class="label">Cracking the Coding Interview</span>
-                            Gayle Laakmann McDowell
-                        </li>
-                        <li>
-                            <span class="label">A Philosophy of Software Design</span>
-                            John Ousterhout
-                        </li>
-                        <li>
-                            <span class="label">Combinatorics for the Graphically Challenged</span>
-                            <em>(I'm joking)</em>
-                        </li>
-                    </ul>
-                </details>
+                <h2>Reading List</h2>
+                <ul>
+                    <li>
+                        <span class="modal-trigger" onclick="openReadingListModal()">My 10 Reads [+]</span>
+                    </li>
+                </ul>
             </div>
 
             <div class="sidebar-section">
@@ -549,9 +479,9 @@
     </div>
 
     <!-- Full-screen Modal for PNS Guard -->
-    <div class="modal-overlay" id="pnsModal" onclick="checkClose(event)">
+    <div class="modal-overlay" id="pnsModal" onclick="checkClosePns(event)">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">✕</button>
+            <button class="modal-close" onclick="closePnsModal()">✕</button>
             <h3>PNS Guard: Geometric AI Safety</h3>
             <p class="modal-subtitle">Advanced Architecture & Active Defense Mechanism</p>
             
@@ -567,20 +497,58 @@
         </div>
     </div>
 
+    <!-- Full-screen Modal for Reading List -->
+    <div class="modal-overlay" id="readingListModal" onclick="checkCloseReadingList(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeReadingListModal()">✕</button>
+            <h3>My 10 Reads</h3>
+            <p class="modal-subtitle">Books & Publications I Enjoy and Recommend</p>
+            
+            <ul>
+                <li><strong>“The Alignment Problem”</strong> — Brian Christian</li>
+                <li><strong>“De Officiis”</strong> — Cicero</li>
+                <li><strong>“Mediations”</strong> — Marcus Aurelius</li>
+                <li><strong>“Cybernetics”</strong> — Norbert Wiener</li>
+                <li><strong>“Situational Awareness”</strong> — Leopold Aschenbrenner</li>
+                <li><strong>“Sapiens”</strong> — Yuval Noah Harari</li>
+                <li><strong>“Organon”</strong> — Aristotle</li>
+                <li><strong>“Cracking the Coding Interview”</strong> — Gayle Laakmann McDowell</li>
+                <li><strong>“A Philosophy of Software Design”</strong> — John Ousterhout</li>
+                <li><strong>“Combinatorics for the Graphically Challenged”</strong> — <em>(I'm joking)</em></li>
+            </ul>
+        </div>
+    </div>
+
     <script>
-        function openModal() {
+        function openPnsModal() {
             document.getElementById('pnsModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() {
+        function closePnsModal() {
             document.getElementById('pnsModal').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
 
-        function checkClose(event) {
+        function checkClosePns(event) {
             if (event.target === document.getElementById('pnsModal')) {
-                closeModal();
+                closePnsModal();
+            }
+        }
+
+        function openReadingListModal() {
+            document.getElementById('readingListModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeReadingListModal() {
+            document.getElementById('readingListModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function checkCloseReadingList(event) {
+            if (event.target === document.getElementById('readingListModal')) {
+                closeReadingListModal();
             }
         }
     </script>
