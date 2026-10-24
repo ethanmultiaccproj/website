@@ -140,6 +140,48 @@
             margin-bottom: 1px;
         }
 
+        /* Click-open tab styling for Sidebar Reading List */
+        .sidebar-details {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .sidebar-summary {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            font-weight: 700;
+            padding: 0;
+            margin: 0 0 12px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            list-style: none;
+            background: transparent;
+        }
+
+        .sidebar-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .sidebar-summary::after {
+            content: '+';
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .sidebar-details[open] .sidebar-summary::after {
+            content: '−';
+        }
+
+        .sidebar-details ul {
+            margin-top: 12px;
+        }
+
         /* Clean Collapsible Sections */
         details {
             margin-bottom: 32px;
@@ -445,50 +487,53 @@
                 </ul>
             </div>
 
+            <!-- Click-Open Reading List Section -->
             <div class="sidebar-section">
-                <h2>Reading List</h2>
-                <ul>
-                    <li>
-                        <span class="label">The Alignment Problem</span>
-                        Brian Christian
-                    </li>
-                    <li>
-                        <span class="label">De Officiis</span>
-                        Cicero
-                    </li>
-                    <li>
-                        <span class="label">Mediations</span>
-                        Marcus Aurelius
-                    </li>
-                    <li>
-                        <span class="label">Cybernetics</span>
-                        Norbert Wiener
-                    </li>
-                    <li>
-                        <span class="label">Situational Awareness</span>
-                        Leopold Aschenbrenner
-                    </li>
-                    <li>
-                        <span class="label">Sapiens</span>
-                        Yuval Noah Harari
-                    </li>
-                    <li>
-                        <span class="label">Organon</span>
-                        Aristotle
-                    </li>
-                    <li>
-                        <span class="label">Cracking the Coding Interview</span>
-                        Gayle Laakmann McDowell
-                    </li>
-                    <li>
-                        <span class="label">A Philosophy of Software Design</span>
-                        John Ousterhout
-                    </li>
-                    <li>
-                        <span class="label">Combinatorics for the Graphically Challenged</span>
-                        <em>(I'm joking)</em>
-                    </li>
-                </ul>
+                <details class="sidebar-details">
+                    <summary class="sidebar-summary">Reading List</summary>
+                    <ul>
+                        <li>
+                            <span class="label">The Alignment Problem</span>
+                            Brian Christian
+                        </li>
+                        <li>
+                            <span class="label">De Officiis</span>
+                            Cicero
+                        </li>
+                        <li>
+                            <span class="label">Mediations</span>
+                            Marcus Aurelius
+                        </li>
+                        <li>
+                            <span class="label">Cybernetics</span>
+                            Norbert Wiener
+                        </li>
+                        <li>
+                            <span class="label">Situational Awareness</span>
+                            Leopold Aschenbrenner
+                        </li>
+                        <li>
+                            <span class="label">Sapiens</span>
+                            Yuval Noah Harari
+                        </li>
+                        <li>
+                            <span class="label">Organon</span>
+                            Aristotle
+                        </li>
+                        <li>
+                            <span class="label">Cracking the Coding Interview</span>
+                            Gayle Laakmann McDowell
+                        </li>
+                        <li>
+                            <span class="label">A Philosophy of Software Design</span>
+                            John Ousterhout
+                        </li>
+                        <li>
+                            <span class="label">Combinatorics for the Graphically Challenged</span>
+                            <em>(I'm joking)</em>
+                        </li>
+                    </ul>
+                </details>
             </div>
 
             <div class="sidebar-section">
